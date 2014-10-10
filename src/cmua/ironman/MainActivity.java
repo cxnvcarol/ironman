@@ -7,11 +7,9 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -24,7 +22,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.text.method.ScrollingMovementMethod;
-import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,6 +42,7 @@ public class MainActivity extends ActionBarActivity {
 	private static final String PROPULSORES_ACTIVADOS = "PROPULSORES ACTIVADOS\0";
 	private static final String ENSAMBLAR_ARMADURA = "ENSAMBLAR ARMADURA\0";
 	private static final int REQUEST_CAMERA = 4;
+	private static final String DISPARAR = "DISPARAR\0";
 
 	// private static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
@@ -254,7 +252,7 @@ public class MainActivity extends ActionBarActivity {
 			break;
 
 		case REQUEST_CAMERA:
-			//TODO GET photo. Algo así:
+			//TODO GET photo. Algo asï¿½:
 			/*
 			 *  
     	       try{
@@ -303,14 +301,26 @@ public class MainActivity extends ActionBarActivity {
 			activarPropulsores();
 		else if(command.contains("armadura"))
 			ensamblarArmadura();
-		else if(command.contains("camara")||command.contains("cámara"))
+		else if(command.contains("camara")||command.contains("cï¿½mara"))
 			abrirCamara();
+		else if(command.contains("dispara"))
+			{
+			this.disparar();
+			
+			}
 		tryOpenApp(matches.get(0));
 
 	}
 
+	private void disparar() throws IOException {
+		msg("Dispara!");
+		sendBth(DISPARAR);
+		HomeFragment.disparar();
+		
+	}
+
 	private void abrirCamara() {
-		msg("Abriendo cámara");
+		msg("Abriendo cï¿½mara");
 		try{
 			Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
 	        startActivityForResult(intent, REQUEST_CAMERA);
@@ -505,9 +515,9 @@ public class MainActivity extends ActionBarActivity {
 				System.err.println("Capturada!!");
 				e.printStackTrace();
 			}
-
 			try {
-				mBTSocket.close();
+				if(mBTSocket!=null)
+					mBTSocket.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

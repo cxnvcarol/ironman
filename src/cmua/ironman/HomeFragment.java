@@ -1,13 +1,9 @@
 package cmua.ironman;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.os.Bundle;
@@ -18,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.media.AudioManager;
 /**
@@ -133,7 +128,7 @@ public class HomeFragment extends Fragment {
 		startActivityForResult(intent, VOICE_RECOGNITION_REQUEST_CODE);
 	}
 
-	public void disparar()
+	public static void disparar()
 	{
 		Camera cam = Camera.open();     
 
