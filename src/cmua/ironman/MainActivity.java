@@ -39,10 +39,10 @@ public class MainActivity extends ActionBarActivity {
 	private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
 	private static final int REQUEST_CONNECT_DEVICE_INSECURE = 2;
 	private static final int REQUEST_ENABLE_BT = 3;
-	private static final String PROPULSORES_ACTIVADOS = "PROPULSORES ACTIVADOS\0";
-	private static final String ENSAMBLAR_ARMADURA = "ENSAMBLAR ARMADURA\0";
+	private static final String PROPULSORES_ACTIVADOS = "P";
+	private static final String ENSAMBLAR_ARMADURA = "E";
 	private static final int REQUEST_CAMERA = 4;
-	private static final String DISPARAR = "DISPARAR\0";
+	private static final String DISPARAR = "D";
 
 	// private static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
@@ -141,12 +141,12 @@ public class MainActivity extends ActionBarActivity {
 			serverIntent = new Intent(this, DeviceListActivity.class);
 			startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
 			return true;
-		case R.id.insecure_connect_scan:
+	//	case R.id.insecure_connect_scan:
 			// Launch the DeviceListActivity to see devices and do scan
-			serverIntent = new Intent(this, DeviceListActivity.class);
-			startActivityForResult(serverIntent,
-					REQUEST_CONNECT_DEVICE_INSECURE);
-			return true;
+		//	serverIntent = new Intent(this, DeviceListActivity.class);
+			//startActivityForResult(serverIntent,
+				//	REQUEST_CONNECT_DEVICE_INSECURE);
+			//return true;
 		case R.id.discoverable:
 			// Ensure this device is discoverable by others
 			ensureDiscoverable();
@@ -301,7 +301,7 @@ public class MainActivity extends ActionBarActivity {
 			activarPropulsores();
 		else if(command.contains("armadura"))
 			ensamblarArmadura();
-		else if(command.contains("camara")||command.contains("cï¿½mara"))
+		else if(command.contains("camara")||command.contains("cámara"))
 			abrirCamara();
 		else if(command.contains("dispara"))
 			{
@@ -315,7 +315,7 @@ public class MainActivity extends ActionBarActivity {
 	private void disparar() throws IOException {
 		msg("Dispara!");
 		sendBth(DISPARAR);
-		HomeFragment.disparar();
+		HomeFragment.disparar();//TODO
 		
 	}
 

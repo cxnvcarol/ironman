@@ -89,7 +89,7 @@ public class HomeFragment extends Fragment {
 		btnDisparar=(Button)rootView.findViewById(R.id.btnDisparar);
 		btnSendBth=(Button)rootView.findViewById(R.id.btnSend);
 		btnClearBth=(Button)rootView.findViewById(R.id.btnClear);
-		disableBluetoothButtons();
+		// disableBluetoothButtons();
 
 		btnEscuchar.setOnClickListener(new View.OnClickListener() {
 			@Override
