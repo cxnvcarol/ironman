@@ -39,10 +39,10 @@ public class MainActivity extends ActionBarActivity {
 	private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
 	private static final int REQUEST_CONNECT_DEVICE_INSECURE = 2;
 	private static final int REQUEST_ENABLE_BT = 3;
-	private static final String PROPULSORES_ACTIVADOS = "P";
-	private static final String ENSAMBLAR_ARMADURA = "E";
+	private static final String PROPULSORES_ACTIVADOS = "x";
+	private static final String ENSAMBLAR_ARMADURA = "y";
 	private static final int REQUEST_CAMERA = 4;
-	private static final String DISPARAR = "D";
+	private static final String DISPARAR = "z";
 
 	// private static final int VOICE_RECOGNITION_REQUEST_CODE = 1234;
 
